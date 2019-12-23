@@ -18,4 +18,3 @@ linked applications, or as a starting point for your own libc.
 
 Released under the terms of the MIT license.
 See LICENSE file in project root for more details.
-
