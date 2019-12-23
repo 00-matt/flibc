@@ -15,7 +15,8 @@ OBJS = \
 	src/string/memcpy.o \
 	src/string/memmove.o \
 	src/string/memset.o \
-	src/string/strlen.o
+	src/string/strlen.o \
+	src/string/strnlen.o
 DEPS = $(OBJS:.o=.d)
 
 .PHONY: all
