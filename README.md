@@ -6,6 +6,10 @@ linked applications, or as a starting point for your own libc.
 
 ## Implemented Methods
 
+### `ctype.h`
+
+* `isspace`
+
 ### `string.h`
 
 * `memcmp`

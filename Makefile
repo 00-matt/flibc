@@ -11,6 +11,7 @@ CFLAGS = \
 CPPFLAGS = -Iinclude
 
 OBJS = \
+	src/ctype/isspace.o \
 	src/string/memcmp.o \
 	src/string/memcpy.o \
 	src/string/memmove.o \

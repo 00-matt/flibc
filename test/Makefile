@@ -9,6 +9,7 @@ CFLAGS = \
 CPPFLAGS = -I.
 
 OBJS = \
+	ctype.o \
 	main.o \
 	string.o
 DEPS = $(OBJS:.o=.d)
