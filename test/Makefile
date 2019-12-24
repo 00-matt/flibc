@@ -11,6 +11,7 @@ CPPFLAGS = -I.
 OBJS = \
 	ctype.o \
 	main.o \
+	stdlib.o \
 	string.o
 DEPS = $(OBJS:.o=.d)
 

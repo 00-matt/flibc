@@ -10,6 +10,10 @@ linked applications, or as a starting point for your own libc.
 
 * `isspace`
 
+### `stdlib.h`
+
+* `itoa`
+
 ### `string.h`
 
 * `memcmp`
