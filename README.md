@@ -23,6 +23,11 @@ linked applications, or as a starting point for your own libc.
 * `strlen`
 * `strnlen`
 
+## Project Non-Goals
+
+* Locales
+* Wide chars
+
 ## License
 
 Released under the terms of the MIT license.
