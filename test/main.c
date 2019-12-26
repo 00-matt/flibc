@@ -11,7 +11,7 @@ extern void string_test(void);
 int assertions_fail = 0;
 int assertions_total = 0;
 
-int main(int argc, char **argv) {
+int main() {
   ctype_test();
   stdio_test();
   stdlib_test();
