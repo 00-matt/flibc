@@ -2,9 +2,11 @@
 
 #include <stdarg.h>
 #include <stddef.h>
+#include <stdlib.h>
 #include <string.h>
 
 int sprintf(char *str, const char *fmt, ...) {
+  char buf[12];
   int n = 0;
   va_list params;
   va_start(params, fmt);
@@ -33,6 +35,21 @@ int sprintf(char *str, const char *fmt, ...) {
       *str = c;
       str++;
       n++;
+    } else if (*fmt == 'd' || *fmt == 'x') {
+      int base = *fmt == 'd' ? 10 : 16;
+      fmt++;
+      int val = va_arg(params, int);
+      size_t len = itoa(val, buf, base, 1, 0);
+      memcpy(str, buf, len);
+      str += len;
+      n += len;
+    } else {
+      fmt = start;
+      size_t len = strlen(fmt);
+      memcpy(str, fmt, len);
+      str += len;
+      n += len;
+      fmt += len;
     }
   }
 
