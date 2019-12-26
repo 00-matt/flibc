@@ -23,18 +23,18 @@ OBJS = \
 DEPS = $(OBJS:.o=.d)
 
 .PHONY: all
-all: flibc.a
+all: libflibc.a
 
-flibc.a: $(OBJS)
-	$(AR) rcs flibc.a $(OBJS)
+libflibc.a: $(OBJS)
+	$(AR) rcs libflibc.a $(OBJS)
 
 .PHONY: test
-test: flibc.a
+test: libflibc.a
 	$(MAKE) -C test test
 
 .PHONY: clean
 clean:
-	$(RM) flibc.a $(OBJS) $(DEPS)
+	$(RM) libflibc.a $(OBJS) $(DEPS)
 	$(MAKE) -C test clean
 
 -include $(DEPS)
