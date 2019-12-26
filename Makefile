@@ -12,6 +12,7 @@ CPPFLAGS = -Iinclude
 
 OBJS = \
 	src/ctype/isspace.o \
+	src/stdio/sprintf.o \
 	src/stdlib/itoa.o \
 	src/string/memcmp.o \
 	src/string/memcpy.o \

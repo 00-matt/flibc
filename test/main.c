@@ -4,6 +4,7 @@
 #include <flibc-test.h>
 
 extern void ctype_test(void);
+extern void stdio_test(void);
 extern void stdlib_test(void);
 extern void string_test(void);
 
@@ -12,6 +13,7 @@ int assertions_total = 0;
 
 int main(int argc, char **argv) {
   ctype_test();
+  stdio_test();
   stdlib_test();
   string_test();
   if (assertions_fail != 0) {
