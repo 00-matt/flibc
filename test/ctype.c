@@ -1,6 +1,14 @@
 #include <flibc-test.h>
 
+extern int flibc_isblank(int);
 extern int flibc_isspace(int);
+
+static void ctype_isblank_test(void) {
+  TEST_ASSERT(flibc_isblank(' '));
+  TEST_ASSERT(flibc_isblank('\t'));
+  TEST_ASSERT(!flibc_isblank('\n'));
+  TEST_ASSERT(!flibc_isblank('a'));
+}
 
 static void ctype_isspace_test(void) {
   TEST_ASSERT(flibc_isspace(' '));
@@ -14,4 +22,7 @@ static void ctype_isspace_test(void) {
   TEST_ASSERT(!flibc_isspace('@'));
 }
 
-void ctype_test(void) { ctype_isspace_test(); }
+void ctype_test(void) {
+  ctype_isblank_test();
+  ctype_isspace_test();
+}

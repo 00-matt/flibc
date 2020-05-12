@@ -11,6 +11,7 @@ CFLAGS = \
 CPPFLAGS = -Iinclude
 
 OBJS = \
+	src/ctype/isblank.o \
 	src/ctype/isspace.o \
 	src/stdio/sprintf.o \
 	src/stdlib/itoa.o \
