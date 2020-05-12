@@ -7,6 +7,8 @@ __BEGIN_DECLS
 
 int isblank(int);
 
+int isdigit(int);
+
 int isspace(int);
 
 __END_DECLS

@@ -9,6 +9,7 @@ linked applications, or as a starting point for your own libc.
 ### `ctype.h`
 
 * `isblank`
+* `isdigit`
 * `isspace`
 
 ### `stdlib.h`
