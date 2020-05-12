@@ -1,0 +1,25 @@
+name: Run Tests
+on: [push, pull_request]
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: [gcc, clang]
+    steps:
+      - uses: actions/checkout@v2
+      - shell: bash
+        run: |
+          sudo apt update -qq
+          sudo apt install -y \
+            ${{ matrix.compiler }} \
+            make
+      - shell: bash
+        run: |
+          make CC=${{ matrix.compiler }}
+          make CC=${{ matrix.compiler }} -C test flibc-test
+      - shell: bash
+        run: ./test/flibc-test
+          
