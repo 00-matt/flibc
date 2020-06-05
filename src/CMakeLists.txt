@@ -10,7 +10,7 @@ add_library(flibc
   string/memset.c
   string/strlen.c
   string/strnlen.c)
-target_include_directories(flibc PUBLIC ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(flibc PUBLIC ../include)
 set_target_properties(flibc PROPERTIES
   COMPILE_FLAGS "-ffreestanding -nostdlib"
   C_STANDARD 99
