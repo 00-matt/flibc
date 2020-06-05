@@ -35,6 +35,13 @@ int sprintf(char *str, const char *fmt, ...) {
       *str = c;
       str++;
       n++;
+    } else if (*fmt == 's') {
+      fmt++;
+      char *s = (char *)va_arg(params, char *);
+      size_t len = strlen(s);
+      memcpy(str, s, len);
+      str += len;
+      n += len;
     } else if (*fmt == 'd' || *fmt == 'x') {
       int base = *fmt == 'd' ? 10 : 16;
       fmt++;

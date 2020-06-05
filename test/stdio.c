@@ -33,6 +33,9 @@ static void stdio_sprintf_test(void) {
 
   TEST_ASSERT_EQ(11, flibc_sprintf(buf, "%d", -2147483648));
   TEST_ASSERT(strncmp(buf, "-2147483648", sizeof(buf)) == 0);
+
+  TEST_ASSERT_EQ(12, flibc_sprintf(buf, "%s, %s", "hello", "world"));
+  TEST_ASSERT(strncmp(buf, "hello, world", sizeof(buf)) == 0);
 }
 
 void stdio_test(void) { stdio_sprintf_test(); }
