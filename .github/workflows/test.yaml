@@ -1,8 +1,8 @@
 name: Run Tests
 on: [push, pull_request]
 jobs:
-  test:
-    name: Test
+  test-make:
+    name: Test (Make)
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -22,4 +22,29 @@ jobs:
           make CC=${{ matrix.compiler }} -C test flibc-test
       - shell: bash
         run: ./test/flibc-test
-          
+  test-cmake:
+    name: Test (CMake)
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: [gcc, clang]
+    steps:
+      - uses: actions/checkout@v2
+      - shell: bash
+        run: |
+          sudo apt update -qq
+          sudo apt install -y \
+            ${{ matrix.compiler }} \
+            cmake \
+            make
+      - shell: bash
+        run: >-
+          cmake
+          -Bbuild
+          -DCMAKE_C_COMPILER=${{ matrix.compiler }}
+          -DFLIBC_BUILD_TESTS=ON
+      - shell: bash
+        run: make -Cbuild all
+      - shell: bash
+        run: ./build/test/flibc-test
