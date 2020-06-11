@@ -50,6 +50,13 @@ int sprintf(char *str, const char *fmt, ...) {
       memcpy(str, buf, len);
       str += len;
       n += len;
+    } else if (*fmt == 'p') {
+      fmt++;
+      size_t val = va_arg(params, size_t);
+      size_t len = itoa(val, buf, 16, 0, 0);
+      memcpy(str, buf, len);
+      str += len;
+      n += len;
     } else {
       fmt = start;
       size_t len = strlen(fmt);
